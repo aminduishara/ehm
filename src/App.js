@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Link, NavLink } from "react-router-dom";
-import Home from "./components/Home";
-import Reservation from "./components/Reservation";
+import Home from "./pages/Home";
+import Reservation from "./pages/Reservation";
 
 const navClassName = "nav-link";
 const navActiveClassName = "nav-link active";
