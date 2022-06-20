@@ -1,11 +1,14 @@
 import React from 'react'
+import SearchBarCmp from '../components/SearchBar/SearchBarCmp'
+import HotelList from '../components/HotelList/HotelList'
 
 function Home() {
     return (
         <div>
-            <h2>Welcome to the homepage!</h2>
-            <p>You can do this, I believe in you.</p>
+            <SearchBarCmp/>
+            <HotelList/>
         </div>
+
     )
 }
 
