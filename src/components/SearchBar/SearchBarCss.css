@@ -2,8 +2,8 @@
     margin-top: 1.6rem;
     background-color: #0E79FF;
     border-radius: 3rem;
-    padding: 1rem 1.5rem;
-    padding-right: 1rem;
+    padding: 0.2rem 1.5rem;
+    padding-right: 0.4rem;
     color: #ffffff;
   }
 
@@ -14,8 +14,8 @@
   }
 
   .searchbar__bar .searchbar__btn {
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
     background-color: #ffffff;
     font-size: 1.5rem;
