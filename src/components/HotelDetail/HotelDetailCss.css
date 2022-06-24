@@ -1,5 +1,6 @@
-.hoteldetail__card{
-    border-radius: 25px;
+.hoteldetail__cardbody{
+    height: 15rem;
+    overflow-y: auto;
 }
 
 .hoteldetail__polaroid {

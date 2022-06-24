@@ -41,3 +41,23 @@
     transform: translateY(-50%);
   }
   
+
+
+
+  .searchbar__bar {
+    height: 6.5rem;
+    background-color: #0E79FF;
+    border-radius: 35px;
+    padding: 1rem 2rem;
+  }
+
+  .searchbar__bar input {
+    background-color: transparent !important;
+  }
+
+  .searchbar__bar .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
