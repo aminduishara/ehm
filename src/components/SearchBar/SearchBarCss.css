@@ -1,43 +1,26 @@
-.searchbar__card {
-    margin-left:auto;
-    margin-right:auto;
-    margin-top: 100px;
-    border-radius: 80px;
+  .searchbar__bar {
+    margin-top: 1.6rem;
     background-color: #0E79FF;
-    border-color: #0E79FF;
+    border-radius: 3rem;
+    padding: 0.2rem 1.5rem;
+    padding-right: 0.4rem;
     color: #ffffff;
-    font-size: small;
-}
+  }
 
-.searchbar__btn {
-    width: 50px;
-    height: 50px;
-    padding: 6px 0px;
-    border-radius: 25px;
-    text-align: center;
+  .searchbar__bar input {
+    background-color: #43424253 !important;
+    padding: 0.1rem 0.75rem;
+    color: #ffffff !important;
+  }
+
+  .searchbar__bar .searchbar__btn {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
     background-color: #ffffff;
-    color: #0E79FF;
-}
-
-.searchbar__btn:hover {
-    background-color:#0E79FF;
-    color: #ffffff;
-    border-color: #0E79FF;
-}
-
-.searchbar__form {
-    margin-left: 100px;
-}
-
-
-.searchbar__icon {
-    float: right;
-}
-
-.searchbar__verticalcenter {
-    top: 50%;
-    bottom: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    font-size: 1.5rem;
   }
   
+  .searchbar__bar .searchbar__btn:hover {
+    background-color: rgb(164, 160, 160);
+  }

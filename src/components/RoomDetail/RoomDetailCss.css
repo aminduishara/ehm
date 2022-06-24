@@ -1,0 +1,34 @@
+.roomdetail__card {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: #EFF0F2;
+    border-color: #EFF0F2;
+    font-size: small;
+}
+
+.roomdetail__count {
+    width: 40px;
+    height: 40px;
+    padding: 6px 0px;
+    border-radius: 100px;
+    text-align: center;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: Montserrat;
+    font-weight: bolder;
+}
+
+.roomdetail__customselect {
+    background-color: #000000;
+    border-radius: 25px;
+    color: #ffffff;
+    width: 100%;
+    padding: 0.375rem 1.25rem 0.375rem 0.75rem;
+    -moz-padding-start: calc(0.75rem - 3px);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border: 1px solid #ced4da;
+}

@@ -1,17 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import HotelImg from './Hotel.jpg'
+import './HotelDetailCss.css'
 
-export default function HotelDetailCmp() {
+export default function HotelDetailCmp({ room }) {
   return (
-    <div>
-        <div className="card hoteldetail__card m-5 shadow bg-white rounded" style={{width: "18rem"}}>
+    <div className="col-md-4">
+      <div className="card mt-3 shadow bg-white rounded">
         <img className="card-img-top hoteldetail__card" src={HotelImg} alt="Card image cap" />
-        <div className="card-body">
-            <h5 className="card-title" style={{textAlign:"center"}}>Superior Room</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <center><a href="#" className="btn btn-dark">Book from $200</a></center>
+        <div className="card-body hoteldetail__cardbody">
+          <h5 className="card-title" style={{ textAlign: "center" }}>{room.name}</h5>
+          <p className="card-text">{room.des}</p>
         </div>
+        <div className="card-footer text-center" style={{ background: 'none' }}>
+          <Link to="/reservation" className="btn btn-dark">Book from $200</Link>
         </div>
+      </div>
     </div>
   )
 }
