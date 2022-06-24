@@ -1,8 +1,11 @@
 import React from 'react'
-
+import RoomDetailCmp from '../components/BookingDetail/BookingDetailCmp'
+//Reservation
 function Reservation() {
     return (
-        <div>Reservation</div>
+        <div>
+            <RoomDetailCmp/>
+        </div>        
     )
 }
 
