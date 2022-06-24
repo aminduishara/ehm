@@ -6,7 +6,7 @@ import './HotelDetailCss.css'
 export default function HotelDetailCmp({ room }) {
   return (
     <div className="col-md-4">
-      <div className="card mt-5 shadow bg-white rounded">
+      <div className="card mt-3 shadow bg-white rounded">
         <img className="card-img-top hoteldetail__card" src={HotelImg} alt="Card image cap" />
         <div className="card-body hoteldetail__cardbody">
           <h5 className="card-title" style={{ textAlign: "center" }}>{room.name}</h5>
