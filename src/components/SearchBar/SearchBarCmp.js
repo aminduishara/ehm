@@ -1,92 +1,27 @@
 import React from "react";
 import "./SearchBarCss.css";
 
-// export function SearchBarCmp1() {
-//   return (
-//     <div className="card searchbar__card">
-//       <div className="card-body">
-//         <form action="#" method="post" className="searchbar__form">
-//           <div className="row justify-content-between align-items-end">
-//             <div className="col-md-2 col-lg-3">
-//               <label htmlFor="checkIn">Check In</label>
-//               <input
-//                 type="date"
-//                 className="form-control"
-//                 style={{
-//                   backgroundColor: "#0E79FF",
-//                   borderColor: "#0E79FF",
-//                   fontSize: "small",
-//                 }}
-//                 id="checkIn"
-//                 name="checkin-date"
-//               />
-//             </div>
-//             <div className="col-md-2 col-lg-1 searchbar__verticalcenter">
-//               <div
-//                 style={{
-//                   borderLeft: "6px solid white",
-//                   height: "40px",
-//                   marginTop: "-24px",
-//                 }}
-//               ></div>
-//             </div>
-//             <div className="col-md-2 col-lg-3">
-//               <label htmlFor="checkOut">Check Out</label>
-//               <input
-//                 type="date"
-//                 className="form-control"
-//                 style={{
-//                   backgroundColor: "#0E79FF",
-//                   borderColor: "#0E79FF",
-//                   fontSize: "small",
-//                 }}
-//                 id="checkOut"
-//                 name="checkout-date"
-//               />
-//             </div>
-//             <div className="col-md-2 col-lg-1 searchbar__verticalcenter">
-//               <div
-//                 style={{
-//                   borderLeft: "6px solid white",
-//                   height: "40px",
-//                   marginTop: "-24px",
-//                 }}
-//               ></div>
-//             </div>
-//             <div className="col-12 col-md-3 text-end searchbar__icon">
-//               <button type="submit" className="btn searchbar__btn">
-//                 <i className="fa fa-search fa-lg"></i>
-//               </button>
-//             </div>
-//           </div>
-//         </form>
-//       </div>
-//     </div>
-//   );
-// }
-
 export default function SearchBarCmp() {
-return (
-  <div className="col-10 searchbar__bar">
-    <div className="row">
-      <div className="col-md-4">
-        <label htmlFor="">Check In</label>
-        <input type="date" id="txtCheckInDate" name="txtCheckInDate" className="form-control" />
-      </div>
-      <div className="col-md-4">
-      <label htmlFor="">Check OUt</label>
-        <input type="date" id="txtCheckOUtDate" name="txtCheckOUtDate" className="form-control" />
-      </div>
-      <div className="col-md-4">
-          <div>
+  return (
+    <div className="col-12 col-sm-10 col-md-10 searchbar__bar">
+      <div className="row">
+        <div className="col-md-4 mb-3">
+          <label htmlFor="">Check In</label>
+          <input type="date" id="txtCheckInDate" name="txtCheckInDate" className="form-control" />
+        </div>
+        <div className="col-md-4 mb-3">
+          <label htmlFor="">Check OUt</label>
+          <input type="date" id="txtCheckOUtDate" name="txtCheckOUtDate" className="form-control" />
+        </div>
+        <div className="col-md-4">
+          <div className="text-end">
             <button type="submit" className="btn searchbar__btn">
-            <i className="fa fa-search fa-lg"></i>
+              <i className="fa fa-search fa-lg"></i>
             </button>
-         </div>
-      </div> 
-      
+          </div>
+        </div>
       </div>
-   </div>
+    </div>
   )
 }
 
