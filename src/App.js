@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
 import Reservation from "./pages/Reservation";
+import RoomDetails from "./pages/RoomDetails/RoomDetails";
 
 const navClassName = "nav-link";
 const navActiveClassName = "nav-link active";
@@ -23,6 +24,11 @@ function App() {
                   }>Home</NavLink>
                 </li>
                 <li className="nav-item">
+                  <NavLink to="/roomdetail" className={({ isActive }) =>
+                    isActive ? navActiveClassName : navClassName
+                  }>Room Detail</NavLink>
+                </li>
+                <li className="nav-item">
                   <NavLink to="/reservation" className={({ isActive }) =>
                     isActive ? navActiveClassName : navClassName
                   }>Rooms</NavLink>
@@ -41,6 +47,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="reservation" element={<Reservation />} />
+            <Route path="roomdetail" element={<RoomDetails />} />
           </Routes>
         </div>
       </header>

@@ -1,0 +1,16 @@
+.img__cl1{
+    padding: 2px;
+    border-radius: 12px;
+}
+.img__cl2{
+    padding: 2px;
+    border-radius: 12px;
+}
+
+.p__title{
+    text-align: left;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    font-size: 18px;
+    font-weight: 600;
+}
