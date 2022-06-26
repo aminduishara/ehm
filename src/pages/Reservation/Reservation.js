@@ -3,6 +3,7 @@ import BookingDetailCmp from '../../components/BookingDetail/BookingDetailCmp'
 import BeachImg from './beach.jpg'
 import './Reservation.css'
 import TotalCmp from '../../components/Total/TotalCmp'
+import UserDetails from '../UserDetail/UserDetails'
 
 function Reservation() {
     return (
@@ -29,7 +30,6 @@ function Reservation() {
                     
                     </div>
             </div>
-
         </div>        
     )
 }
