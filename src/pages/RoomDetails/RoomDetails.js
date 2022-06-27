@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import Modal from 'react-modal';
 import './RoomDetails.css';
 
 import img1 from '../../Assets/imgs/img1.jpg'
@@ -21,28 +19,8 @@ import img16 from '../../Assets/imgs/insurance.png'
 
 
 const RoomDetails = () => {
-
-    // const [show, setShow] = useState(false);
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
-
     return (
         <div className="mb-4">
-            {/* <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-                <Modal.Footer>
-                <button onClick={handleClose}>
-                    Close
-                </button>
-                <button onClick={handleClose}>
-                    Save Changes
-                </button>
-                </Modal.Footer>
-            </Modal> */}
-
             <div className="col-md-12 row">
                 <div className="col-md-6 row">
                     <img src={img1} className="col-md-12 img__cl1" />
