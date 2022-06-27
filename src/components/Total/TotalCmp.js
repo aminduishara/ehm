@@ -10,7 +10,7 @@ export default function
             <div className="card totaldetail__card rounded">
             <div className="card-body">
                 <div className="row d-flex align-items-center">
-                <div className="col-sm-3 h2 font-weight-bold">
+                <div className="col-sm-3 h2 font-weight-bold m-3">
                     Total Price
                 </div>
                 <div className="col-8 h3 font-weight-bold text-end">
