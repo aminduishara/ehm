@@ -1,55 +1,117 @@
 import React from 'react'
+import './UserDetails.css'
 
 export default function UserDetails() {
   return (
     <div>
+        
+        <center><h1 className='userdetail_topic'>Guest Information</h1></center>
         <form>
         <div className="row mb-4">
-            <div className="col">
-            <div className="form-outline">
-                <input type="text" id="form6Example1" className="form-control" />
-                <label className="form-label" for="form6Example1">First name</label>
+            <div className="col-sm-2">
+                <div>
+                <label className="form-label" htmlFor="form6Example1">Title</label>
+                    <select className=' form-control dropdown dropdown-toggle'>
+                    <option>Mr.</option>
+                    <option>Mrs.</option>
+                    <option>Miss</option>
+                    </select>
+                </div>
+            </div>
+            <div className="col-md-4">
+                <div className="form-outline">
+                    <label className="form-label" htmlFor="form6Example1">First name</label>
+                    <input type="text" id="form6Example1" className="form-control" />
+                </div>
+                <div className="form-outline mt-4">
+                    <label className="form-label" htmlFor="form6Example2">Last name</label>
+                    <input type="text" id="form6Example2" className="form-control" />
+                </div>
+                <div className="form-outline mt-4">
+                    <label className="form-label" htmlFor="form6Example2">NIC</label>
+                    <input type="text" id="form6Example2" className="form-control" />
+                </div>
+                <div className="form-outline mt-4">
+                    <label className="form-label" htmlFor="form6Example2">Passport</label>
+                    <input type="text" id="form6Example2" className="form-control" />
+                </div>
+            </div>
+
+            <div className="col-md-5 ms-5">
+                <div className="form-outline">
+                <label className="form-label" htmlFor="form6Example1">Country</label>
+                    <select className=' form-control dropdown dropdown-toggle'>
+                    <option>Sri Lanka</option>
+                    <option>Australia</option>
+                    <option>USA</option>
+                    </select>
+                </div>
+                <div className="form-outline mt-4">
+                <label className="form-label" htmlFor="form6Example1">Nationality</label>
+                    <select className=' form-control dropdown dropdown-toggle'>
+                    <option>Sri lankan</option>
+                    <option>Foriegner</option>
+                    </select>
+                </div>
+                <div className="form-outline mt-4">
+                    <label className="form-label" htmlFor="form6Example2">Email</label>
+                    <input type="email" id="form6Example2" className="form-control" />
+                </div>
+                <div className="row mt-4">
+                    <div className="col-sm-6">
+                    <label className="form-label" htmlFor="form6Example2">Mobile No</label>
+                    <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" id="form6Example2" className="form-control" placeholder="+94 777-1234-56"/>
+                    </div>
+                    <div className="col-sm-6">
+                    <label className="form-label" htmlFor="form6Example2">Telephone No</label>
+                    <input type="tel" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" id="form6Example2" className="form-control" placeholder="+94 112-1234-56"/>
+                    </div>                    
+                </div>
+                
+
+            </div>
+
+        </div>
+
+
+        <div className='row'>
+            <div className="col-sm-2">
+                <div>
+                <label className="form-label" htmlFor="form6Example1">Gender</label>
+                    <select className=' form-control dropdown dropdown-toggle'>
+                    <option>Male</option>
+                    <option>Female</option>
+                    <option>Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <div className="col-md-4">
+            <div className="form-outline mb-4">
+                <label className="form-label" htmlFor="form6Example4">Date of Birth</label>
+                <input type="date" id="form6Example4" className="form-control" />
             </div>
             </div>
-            <div className="col">
-            <div className="form-outline">
-                <input type="text" id="form6Example2" className="form-control" />
-                <label className="form-label" for="form6Example2">Last name</label>
+
+            <div className="col-sm-5 ms-5">
+            <div className="form-outline mb-4">
+                <label className="form-label" htmlFor="form6Example4">Address</label>
+                <input type="text" id="form6Example4" className="form-control" />
             </div>
+
+            <div className="text-end">
+            <button type="submit" className='btn btn-primary userdetail__savebtn'>Save</button>
             </div>
+
+            </div>
+
+            
         </div>
 
-        <div className="form-outline mb-4">
-            <input type="text" id="form6Example3" className="form-control" />
-            <label className="form-label" for="form6Example3">Company name</label>
+        <div className="col-sm-12 text-end">
+                        
         </div>
 
-        <div className="form-outline mb-4">
-            <input type="text" id="form6Example4" className="form-control" />
-            <label className="form-label" for="form6Example4">Address</label>
-        </div>
-
-        <div className="form-outline mb-4">
-            <input type="email" id="form6Example5" className="form-control" />
-            <label className="form-label" for="form6Example5">Email</label>
-        </div>
-
-        <div className="form-outline mb-4">
-            <input type="number" id="form6Example6" className="form-control" />
-            <label className="form-label" for="form6Example6">Phone</label>
-        </div>
-
-        <div className="form-outline mb-4">
-            <textarea className="form-control" id="form6Example7" rows="4"></textarea>
-            <label className="form-label" for="form6Example7">Additional information</label>
-        </div>
-
-        <div className="form-check d-flex justify-content-center mb-4">
-            <input className="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-            <label className="form-check-label" for="form6Example8"> Create an account? </label>
-        </div>
-
-        <button type="submit" className="btn btn-primary btn-block mb-4">Place order</button>
         </form>
     </div>
   )
