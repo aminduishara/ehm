@@ -29,9 +29,9 @@ export default function BookingDetailCmp() {
                 </select>
               </div>
               <div className="col-md-2 mb-2 d-flex justify-content-center">
-                <div class="form-check">
-                  <input class="form-check-input me-2" type="checkbox" value="1" id="flexCheckDefault" style={{ width: 18, height: 18 }} />
-                  <label class="form-check-label" for="flexCheckDefault">
+                <div className="form-check">
+                  <input className="form-check-input me-2" type="checkbox" value="1" id="flexCheckDefault" style={{ width: 18, height: 18 }} />
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
                     Children
                   </label>
                 </div>

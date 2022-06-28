@@ -1,8 +1,9 @@
 import './App.css';
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
-import Reservation from "./pages/Reservation";
+import Reservation from "./pages/Reservation/Reservation";
 import RoomDetails from "./pages/RoomDetails/RoomDetails";
+import UserDetails from "./pages/UserDetail/UserDetails";
 
 const navClassName = "nav-link";
 const navActiveClassName = "nav-link active";
@@ -48,6 +49,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="reservation" element={<Reservation />} />
             <Route path="roomdetail" element={<RoomDetails />} />
+            <Route path="userdetail" element={<UserDetails />} />
           </Routes>
         </div>
       </header>
