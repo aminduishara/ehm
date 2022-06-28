@@ -25,7 +25,7 @@ const RoomDetails = () => {
                 <div className="col-md-6 row">
                     <img src={img1} className="col-md-12 img__cl1" />
                 </div>
-                <div className="col-md-6 row">
+                <div className="col-md-6 row pe-0">
                     <img src={img2} className="col-md-6 img__cl2" />
                     <img src={img3} className="col-md-6 img__cl2" />
                     <img src={img4} className="col-md-6 img__cl2" />
@@ -68,14 +68,14 @@ const RoomDetails = () => {
                     <div className="com-md-12 pt-4">
                         <p className="p_note_head">Apartment Description</p>
                         <p className="p_note_details">
-                            Apartment hotels usually include a full kitchen and one or more bedrooms. 
-                            The difference between these hotels and apartments is that there is no monthly commitment. 
-                            If a guest wants to check out, they do not need to give notice to the hotel, 
+                            Apartment hotels usually include a full kitchen and one or more bedrooms.
+                            The difference between these hotels and apartments is that there is no monthly commitment.
+                            If a guest wants to check out, they do not need to give notice to the hotel,
                             like you would with an apartment rental.
                             <br></br><br></br>
-                            Apartment hotels usually include a full kitchen and one or more bedrooms. 
-                            The difference between these hotels and apartments is that there is no monthly commitment. 
-                            If a guest wants to check out, they do not need to give notice to the hotel, 
+                            Apartment hotels usually include a full kitchen and one or more bedrooms.
+                            The difference between these hotels and apartments is that there is no monthly commitment.
+                            If a guest wants to check out, they do not need to give notice to the hotel,
                             like you would with an apartment rental.
                         </p>
                     </div>
@@ -108,7 +108,7 @@ const RoomDetails = () => {
                                 <p className="col-md-9 p_lbl">Balcony or Patio</p>
                             </div>
                         </div>
-                        
+
                     </div>
 
                     <div className="com-md-12 pt-4">
