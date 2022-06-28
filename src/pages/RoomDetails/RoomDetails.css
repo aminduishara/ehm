@@ -1,16 +1,75 @@
-.img__cl1{
+.img__cl1 {
     padding: 2px;
     border-radius: 12px;
 }
-.img__cl2{
+.img__cl2 {
     padding: 2px;
     border-radius: 12px;
 }
 
-.p__title{
+.p__title {
     text-align: left;
-    padding-top: 2rem;
-    padding-left: 2rem;
+    padding-top: 2px;
     font-size: 18px;
     font-weight: 600;
+}
+
+
+
+.div__cl1 {
+    margin: 4px;
+    padding: 1rem;
+    background-color: gainsboro;
+    border-radius: 5px;
+}
+
+.img__cl3 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 28px;
+    height: 28px;
+}
+
+.p_cl1 {
+    font-size: 12px;
+    font-weight: 500;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.div__cl2 {
+    border-radius: 6px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.btn__Reserve {
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    border: 0;
+    border-radius: 30px;
+    color: white;
+    background-color: royalblue;
+}
+
+.p_note_head {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.p_note_details {
+    font-size: 12px;
+    color: gray;
+}
+
+.img__cl4 {
+    width: 44px;
+    height: 20px;
+}
+
+.p_lbl {
+    font-size: 12px;
+    font-weight: 500;
 }
