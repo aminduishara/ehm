@@ -1,8 +1,9 @@
 import './App.css';
 import { Routes, Route, Link, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
-import Reservation from "./pages/Reservation";
+import Reservation from "./pages/Reservation/Reservation";
 import RoomDetails from "./pages/RoomDetails/RoomDetails";
+import UserDetails from "./pages/UserDetail/UserDetails";
 
 const navClassName = "nav-link";
 const navActiveClassName = "nav-link active";
@@ -35,9 +36,9 @@ function App() {
                 </li>
               </ul>
               <form className="d-flex" role="search">
-                <div class="input-group">
+                <div className="input-group">
                   <input className="form-control custom_search" type="search" placeholder="Search" aria-label="Search" />
-                  <span class="input-group-text custom_icon" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                  <span className="input-group-text custom_icon" id="basic-addon1"><i className="fa-solid fa-magnifying-glass"></i></span>
                 </div>
               </form>
             </div>
@@ -48,6 +49,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="reservation" element={<Reservation />} />
             <Route path="roomdetail" element={<RoomDetails />} />
+            <Route path="userdetail" element={<UserDetails />} />
           </Routes>
         </div>
       </header>
