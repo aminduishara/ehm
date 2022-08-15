@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BookingDetailCmp from '../../components/BookingDetail/BookingDetailCmp'
 import './Reservation.css'
 import TotalCmp from '../../components/Total/TotalCmp'
 import { Link } from 'react-router-dom'
 
 function Reservation() {
+
+    const [RoomQty, setValue] = useState("1");
+
+    const BookingDetail = [];
+
+    for(var i =0; i < RoomQty; i++){
+        BookingDetail.push(<BookingDetailCmp key={i}/>);
+    }
+
     return (
         <div>
             <div className='reservation__img'>
@@ -20,23 +29,20 @@ function Reservation() {
 
                 <div className='row mt-5'>
                     <div className="col-md-1 mb-2 text-center">
-                        <button className="btn reservation__roomcount"><i className='fa-solid fa-plus'></i></button>
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { setValue(parseInt(e.target.value)+1)}}><i className='fa-solid fa-plus'></i></button>
                     </div>
                     <div className="col-md-1 mb-2 text-center">
-                        <button className="btn"><h4>01</h4></button>
+                        <h4>{RoomQty.toString()}</h4>
                     </div>
                     <div className="col-md-1 mb-2 text-center">
-                        <button className="btn reservation__roomcount"><i className='fa-solid fa-minus'></i></button>
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { setValue(parseInt(e.target.value)-1)}}><i className='fa-solid fa-minus'></i></button>
                     </div>
                 </div>
             </div>
 
-
-
-            <BookingDetailCmp />
-            <BookingDetailCmp />
-            <BookingDetailCmp />
-            <BookingDetailCmp />
+            <div>
+                {BookingDetail}
+            </div>
 
 
             <br></br><br></br><br></br>
@@ -52,7 +58,7 @@ function Reservation() {
                     </div>
 
                     <div className="col-6 font-weight-bold">
-                        <textarea type="text-area" className="form-control" style={{ width: '700px', height: '250px' }} x>Please explain your request: arrival tie, flight details, food, preferences, membership number ....</textarea>
+                        <textarea type="text-area" className="form-control" style={{ width: '700px', height: '250px' }}>Please explain your request: arrival tie, flight details, food, preferences, membership number ....</textarea>
                     </div>
 
                     <div className="col-sm-3 text-end">
