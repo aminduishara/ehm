@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BookingDetailCmp from '../../components/BookingDetail/BookingDetailCmp'
 import './Reservation.css'
 import TotalCmp from '../../components/Total/TotalCmp'
 import { Link } from 'react-router-dom'
 
 function Reservation() {
+
+    const [RoomQty, setValue] = useState("1");
+
+    const BookingDetail = [];
+
+    for (var i = 0; i < RoomQty; i++) {
+        BookingDetail.push(<BookingDetailCmp key={i} />);
+    }
+
     return (
         <div className="col-12" style={{ flexDirection: 'column' }}>
             <div style={{ position: 'relative' }}>
@@ -19,22 +28,22 @@ function Reservation() {
                 <h4>Add the number of rooms</h4>
                 <h4>you want</h4>
 
-                <div className="mt-5 d-flex align-items-center">
-                    <div className="col-2 col-md-1 mb-2 text-start">
-                        <button className="btn reservation__roomcount"><i className='fa-solid fa-plus'></i></button>
+                <div className='row mt-5'>
+                    <div className="col-md-1 mb-2 text-center">
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { setValue(parseInt(e.target.value) + 1) }}><i className='fa-solid fa-plus'></i></button>
                     </div>
-                    <div className="col-2 col-md-1 mb-2 text-center">
-                        <h4>01</h4>
+                    <div className="col-md-1 mb-2 text-center">
+                        <h4>{RoomQty.toString()}</h4>
                     </div>
-                    <div className="col-2 col-md-1 mb-2 text-end">
-                        <button className="btn reservation__roomcount"><i className='fa-solid fa-minus'></i></button>
+                    <div className="col-md-1 mb-2 text-center">
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { setValue(parseInt(e.target.value) - 1) }}><i className='fa-solid fa-minus'></i></button>
                     </div>
                 </div>
             </div>
-            <BookingDetailCmp />
-            <BookingDetailCmp />
-            <BookingDetailCmp />
-            <BookingDetailCmp />
+
+            <div>
+                {BookingDetail}
+            </div>
 
             <TotalCmp />
 
@@ -45,8 +54,8 @@ function Reservation() {
                         Special<br />Request For<br /> Your <br />Reservation
                     </div>
 
-                    <div className="col-md-6 font-weight-bold">
-                        <textarea className="form-control" style={{ width: '100%' }} rows="8" placeholder="Please explain your request: arrival time, flight details, food, preferences, membership number ...."></textarea>
+                    <div className="col-6 font-weight-bold">
+                        <textarea type="text-area" className="form-control" style={{ width: '700px', height: '250px' }}>Please explain your request: arrival tie, flight details, food, preferences, membership number ....</textarea>
                     </div>
 
                     <div className="col-md-3 mt-2">
