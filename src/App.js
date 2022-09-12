@@ -24,7 +24,7 @@ function App() {
                     isActive ? navActiveClassName : navClassName
                   }>Home</NavLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink to="/roomdetail" className={({ isActive }) =>
                     isActive ? navActiveClassName : navClassName
                   }>Room Detail</NavLink>
@@ -33,7 +33,7 @@ function App() {
                   <NavLink to="/reservation" className={({ isActive }) =>
                     isActive ? navActiveClassName : navClassName
                   }>Rooms</NavLink>
-                </li>
+                </li> */}
               </ul>
               <form className="d-flex" role="search">
                 <div className="input-group">

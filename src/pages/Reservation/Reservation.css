@@ -1,23 +1,24 @@
 .reservation__img {
     background-image: url("beach.jpg");
     width:100%;
-    height: 300px;    
+    height: 300px;
+    filter: blur(2px);
 }
 
 .reservation__confirmbtn {
     border-radius: 50px;
     height: 50px;
     width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .reservation__transparentbg{
-	background: rgba(255, 255, 255, 0.352);
-    padding-top: 150px;
-    padding-bottom: 150px;
-    padding-left: 80px;
-    padding-right: auto;
-    text-align: left;
     font-size: 26px;
+    position: absolute;
+    top: 10rem;
+    left: 1rem;
 }
 
 .reservation__roomcount {

@@ -16,6 +16,7 @@ import img13 from '../../Assets/imgs/wifi.png'
 import img14 from '../../Assets/imgs/laundry.png'
 import img15 from '../../Assets/imgs/balcony.png'
 import img16 from '../../Assets/imgs/insurance.png'
+import { Link } from 'react-router-dom';
 
 
 const RoomDetails = () => {
@@ -57,7 +58,7 @@ const RoomDetails = () => {
                     </div>
                 </div>
                 <div className="col-md-3 div__cl2 row">
-                    <button className="col-md-12 btn__Reserve">Reserve Now</button>
+                    <Link className="col-md-12 btn__Reserve text-center" to="/reservation" style={{ textDecoration: 'none' }}>Reserve Now</Link>
                     <div className="col-md-12 row">
                         <p className="col-md-6 p_cl1">Property Inquiry</p>
                         <p className="col-md-6 p_cl1">Contact Host</p>

@@ -3,8 +3,8 @@ import './BookingDetailCss.css'
 
 export default function BookingDetailCmp() {
   return (
-    <div className="d-flex justify-content-center align-items-center">
-      <div className="col-8 col-md-12 col-sm-8">
+    <div className="col-12 d-flex justify-content-center align-items-center">
+      <div className="col-12 col-md-12 col-sm-12">
         <div className="card bookingdetail__card rounded">
           <div className="card-body">
             <div className="row d-flex align-items-center">
@@ -36,7 +36,7 @@ export default function BookingDetailCmp() {
                   </label>
                 </div>
               </div>
-              <div className="col-md-2 h6 text-center">
+              <div className="col-md-2 h5 text-end">
                 $ 200
               </div>
             </div>

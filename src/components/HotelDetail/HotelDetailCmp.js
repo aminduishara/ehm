@@ -13,7 +13,7 @@ export default function HotelDetailCmp({ room }) {
           <p className="card-text">{room.des}</p>
         </div>
         <div className="card-footer text-center" style={{ background: 'none' }}>
-          <Link to="/reservation" className="btn btn-dark">Book from $200</Link>
+          <Link to="/roomdetail" className="btn btn-dark">Book from $200</Link>
         </div>
       </div>
     </div>
