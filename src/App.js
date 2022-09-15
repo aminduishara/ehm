@@ -4,6 +4,11 @@ import Home from "./pages/Home";
 import Reservation from "./pages/Reservation/Reservation";
 import RoomDetails from "./pages/RoomDetails/RoomDetails";
 import UserDetails from "./pages/UserDetail/UserDetails";
+import axios from 'axios';
+
+axios.defaults.baseURL = "http://localhost/bookingapi/";
+axios.defaults.headers.post['Content-Type'] = "application/json";
+axios.defaults.headers.post['Accept'] = "application/json";
 
 const navClassName = "nav-link";
 const navActiveClassName = "nav-link active";
