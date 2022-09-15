@@ -10,10 +10,10 @@ export default function HotelDetailCmp({ room }) {
         <img className="card-img-top hoteldetail__card" src={HotelImg} alt="Card image cap" />
         <div className="card-body hoteldetail__cardbody">
           <h5 className="card-title" style={{ textAlign: "center" }}>{room.name}</h5>
-          <p className="card-text">{room.des}</p>
+          <p className="card-text">{room.description}</p>
         </div>
         <div className="card-footer text-center" style={{ background: 'none' }}>
-          <Link to="/roomdetail" className="btn btn-dark">Book from $200</Link>
+          <Link to="/roomdetail" className="btn btn-dark">Book from {room.currency}{room.amount}</Link>
         </div>
       </div>
     </div>
