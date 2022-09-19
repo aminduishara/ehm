@@ -1,7 +1,10 @@
 import React from 'react'
 import './BookingDetailCss.css'
 
-export default function BookingDetailCmp() {
+export default function BookingDetailCmp({ info, datediff }) {
+  const numberWithCommas = (x) => {
+    return x.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
   return (
     <div className="col-12 d-flex justify-content-center align-items-center">
       <div className="col-12 col-md-12 col-sm-12">
@@ -9,7 +12,7 @@ export default function BookingDetailCmp() {
           <div className="card-body">
             <div className="row d-flex align-items-center">
               <div className="col-sm-3 h6">
-                Bedroom No
+                Room
               </div>
               <div className="col-md-2 mb-2">
                 <select className='bookingdetail__customselect'>
@@ -19,12 +22,12 @@ export default function BookingDetailCmp() {
                 </select>
               </div>
               <div className="col-md-1 mb-2 text-center">
-                <button className="btn bookingdetail__count">01</button>
+                {/* <button className="btn bookingdetail__count">01</button> */}
               </div>
               <div className="col-md-2 mb-2">
                 <select className='bookingdetail__customselect'>
-                  <option>Halfboard</option>
                   <option>Fullboard</option>
+                  <option>Halfboard</option>
                   <option>Room Only</option>
                 </select>
               </div>
@@ -37,7 +40,7 @@ export default function BookingDetailCmp() {
                 </div>
               </div>
               <div className="col-md-2 h5 text-end">
-                $ 200
+                {info && info.currency} {info && numberWithCommas(info.amount * datediff)}
               </div>
             </div>
           </div>
