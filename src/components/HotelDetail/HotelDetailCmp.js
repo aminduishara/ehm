@@ -1,9 +1,19 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import HotelImg from './Hotel.jpg'
 import './HotelDetailCss.css'
 
-export default function HotelDetailCmp({ room }) {
+export default function HotelDetailCmp({ room, fromDate, toDate }) {
+  const navigate = useNavigate();
+  const opendetails = (id) => {
+    if (fromDate && toDate) {
+      navigate('/roomdetail/' + id);
+      localStorage.setItem('fromDate', fromDate);
+      localStorage.setItem('toDate', toDate);
+    } else {
+      alert('Please select check in and check out date first')
+    }
+  }
   return (
     <div className="col-md-4">
       <div className="card mt-3 shadow bg-white rounded">
@@ -13,7 +23,8 @@ export default function HotelDetailCmp({ room }) {
           <p className="card-text">{room.description}</p>
         </div>
         <div className="card-footer text-center" style={{ background: 'none' }}>
-          <Link to="/roomdetail" className="btn btn-dark">Book from {room.currency}{room.amount}</Link>
+          {/* <Link to={"/roomdetail/" + room.id} className="btn btn-dark">Book from {room.currency}{room.amount}</Link> */}
+          <button className="btn btn-dark" onClick={() => { opendetails(room.id) }}>Book from {room.currency} {room.amount}</button>
         </div>
       </div>
     </div>
