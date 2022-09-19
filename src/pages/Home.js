@@ -38,7 +38,7 @@ function Home() {
             </div>
             <div className="row">
                 {rooms && rooms.map((room) => (
-                    <HotelDetailCmp room={room} key={room.id} />
+                    <HotelDetailCmp room={room} key={room.id} fromDate={fromDate} toDate={toDate} />
                 ))}
             </div>
         </div>
