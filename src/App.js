@@ -52,8 +52,8 @@ function App() {
         <div className="container pt-2">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="reservation" element={<Reservation />} />
-            <Route path="roomdetail" element={<RoomDetails />} />
+            <Route path="reservation/:id" element={<Reservation />} />
+            <Route path="roomdetail/:id" element={<RoomDetails />} />
             <Route path="userdetail" element={<UserDetails />} />
           </Routes>
         </div>
