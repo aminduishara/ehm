@@ -1,17 +1,54 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import BookingDetailCmp from '../../components/BookingDetail/BookingDetailCmp'
 import './Reservation.css'
 import TotalCmp from '../../components/Total/TotalCmp'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
+import axios from 'axios'
+import moment from 'moment';
 
 function Reservation() {
 
-    const [RoomQty, setValue] = useState("1");
+    const [RoomQty, setValue] = useState(1);
+    const [info, setInfo] = useState();
+    const [rawdata, setRawdata] = useState();
+    const [datediff, setDateDiff] = useState();
+    const fromDate = localStorage.getItem('fromDate');
+    const toDate = localStorage.getItem('toDate');
 
     const BookingDetail = [];
+    const params = useParams();
+
+    const dataload = async () => {
+        await axios.post(`room/getRateInfo`, { id: params.id, date: fromDate }).then(res => {
+            const data = res.data.filter(item => item.roomtype === "1")
+            console.log(data);
+            setInfo(data[0])
+            setRawdata(res.data)
+        }).catch(function (error) {
+            console.error(error);
+            // setError(error.response.data.message);
+        });
+    }
+    useEffect(() => {
+        dataload();
+        setDateDiff(dateConverter(toDate, fromDate));
+    }, []);
+
+    const dateConverter = (startDate, timeEnd) => {
+        const newStartDate = new Date(startDate);
+        const newEndDate = new Date(timeEnd);
+        let result = moment(newStartDate).diff(newEndDate, 'days')
+        return result
+    }
+
+    const decrement = () => {
+        if (parseInt(RoomQty) - 1 > 0) {
+            setValue(parseInt(RoomQty) - 1);
+        }
+    }
 
     for (var i = 0; i < RoomQty; i++) {
-        BookingDetail.push(<BookingDetailCmp key={i} />);
+        BookingDetail.push(<BookingDetailCmp key={i} info={rawdata} datediff={datediff} />);
     }
 
     return (
@@ -19,8 +56,9 @@ function Reservation() {
             <div style={{ position: 'relative' }}>
                 <div className="reservation__img"></div>
                 <div className='reservation__transparentbg'>
-                    <h2 style={{ fontWeight: 'bold' }}>Superior Room</h2>
-                    <h6 style={{ fontWeight: '600' }}>100 Smart Street, LA, USA</h6>
+                    <h2 style={{ fontWeight: 'bold' }}>{info && info.name}</h2>
+                    <h6 style={{ fontWeight: '600' }}>From: {fromDate}<br /> To: {toDate}</h6>
+                    <h6 style={{ fontWeight: '600' }}>{datediff && datediff} Days & {datediff && datediff - 1} Nights</h6>
                 </div>
             </div>
 
@@ -30,13 +68,13 @@ function Reservation() {
 
                 <div className='row mt-5'>
                     <div className="col-md-1 mb-2 text-center">
-                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { setValue(parseInt(e.target.value) + 1) }}><i className='fa-solid fa-plus'></i></button>
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { setValue(parseInt(RoomQty) + 1) }}><i className='fa-solid fa-plus'></i></button>
                     </div>
                     <div className="col-md-1 mb-2 text-center">
                         <h4>{RoomQty.toString()}</h4>
                     </div>
                     <div className="col-md-1 mb-2 text-center">
-                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { setValue(parseInt(e.target.value) - 1) }}><i className='fa-solid fa-minus'></i></button>
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { decrement() }}><i className='fa-solid fa-minus'></i></button>
                     </div>
                 </div>
             </div>
