@@ -10,6 +10,7 @@ function Reservation() {
 
     const [RoomQty, setValue] = useState(1);
     const [info, setInfo] = useState();
+    const [roomInfo, setRoomInfo] = useState();
     const [rawdata, setRawdata] = useState();
     const [datediff, setDateDiff] = useState();
     const fromDate = localStorage.getItem('fromDate');
@@ -21,9 +22,16 @@ function Reservation() {
     const dataload = async () => {
         await axios.post(`room/getRateInfo`, { id: params.id, date: fromDate }).then(res => {
             const data = res.data.filter(item => item.roomtype === "1")
-            console.log(data);
             setInfo(data[0])
             setRawdata(res.data)
+        }).catch(function (error) {
+            console.error(error);
+            // setError(error.response.data.message);
+        });
+
+        await axios.post(`room/getRoomInfo`).then(res => {
+            console.log(res.data.basis);
+            setRoomInfo(res.data);
         }).catch(function (error) {
             console.error(error);
             // setError(error.response.data.message);
@@ -48,7 +56,7 @@ function Reservation() {
     }
 
     for (var i = 0; i < RoomQty; i++) {
-        BookingDetail.push(<BookingDetailCmp key={i} info={rawdata} datediff={datediff} />);
+        (rawdata && roomInfo) && BookingDetail.push(<BookingDetailCmp key={i} info={rawdata} datediff={datediff} roominfo={roomInfo} index={i} />);
     }
 
     return (
