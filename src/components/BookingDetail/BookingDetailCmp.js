@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import './BookingDetailCss.css'
 
-export default function BookingDetailCmp({ info, datediff, roominfo, index }) {
+export default function BookingDetailCmp({ info, datediff, roominfo, index, setTotal }) {
   const [currentIndex, setCurrentIndex] = useState(index + 1);
   const [amount, setAmount] = useState();
   const [firstInfo, setFirstInfo] = useState();
-  const [basis, setBasis] = useState(21);
-  const [type, setType] = useState();
+  const [basis, setBasis] = useState('21');
+  const [type, setType] = useState('1');
   useEffect(() => {
     let data = info.filter((info) => info.basis === '21' && info.roomtype === '1')[0];
     setFirstInfo(data);
@@ -20,9 +20,20 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index }) {
     while (s.length < size) s = "0" + s;
     return s;
   }
-  const ratechange = () => {
-    console.log(basis, type);
-  }
+  useEffect(() => {
+    let data = info.find((info) => info.basis == basis && info.roomtype == type);
+    let amount = data?.amount ? data.amount : 0;
+    setAmount(amount * datediff);
+    setTimeout(() => {
+      let tot = document.getElementsByClassName('total');
+      let t1 = 0;
+      for (var i = 0; i < tot.length; i++) {
+        t1 += parseFloat(tot[i].innerHTML.replace(/,/g, ''));
+      }
+      setTotal(t1);
+    }, 500);
+  }, [basis, type]);
+
   return (
     <div className="col-12 d-flex justify-content-center align-items-center">
       <div className="col-12 col-md-12 col-sm-12">
@@ -33,7 +44,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index }) {
                 Room {currentIndex && pad(currentIndex, 2)}
               </div>
               <div className="col-md-2 mb-2">
-                <select className='bookingdetail__customselect' value={type} onChange={(e) => { setType(e.target.value); ratechange() }}>
+                <select className='bookingdetail__customselect' value={type} onChange={(e) => { setType(e.target.value) }}>
                   {roominfo.type && roominfo.type.map((room) => (
                     <option value={room.id} key={room.id}>{room.name}</option>
                   ))}
@@ -43,7 +54,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index }) {
                 {/* <button className="btn bookingdetail__count">01</button> */}
               </div>
               <div className="col-md-2 mb-2">
-                <select className='bookingdetail__customselect' value={basis} onChange={(e) => { setBasis(e.target.value); ratechange() }}>
+                <select className='bookingdetail__customselect' value={basis} onChange={(e) => { setBasis(e.target.value) }}>
                   {roominfo.basis && roominfo.basis.map((room) => (
                     <option value={room.id} key={room.id}>{room.name}</option>
                   ))}
@@ -58,7 +69,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index }) {
                 </div>
               </div>
               <div className="col-md-2 h5 text-end">
-                {firstInfo && firstInfo.currency} {amount && numberWithCommas(amount)}
+                {firstInfo && firstInfo.currency} <span className="total">{amount && numberWithCommas(amount)}</span>
               </div>
             </div>
           </div>

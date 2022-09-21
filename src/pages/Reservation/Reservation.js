@@ -13,6 +13,7 @@ function Reservation() {
     const [roomInfo, setRoomInfo] = useState();
     const [rawdata, setRawdata] = useState();
     const [datediff, setDateDiff] = useState();
+    const [total, setTotal] = useState(0);
     const fromDate = localStorage.getItem('fromDate');
     const toDate = localStorage.getItem('toDate');
 
@@ -30,7 +31,6 @@ function Reservation() {
         });
 
         await axios.post(`room/getRoomInfo`).then(res => {
-            console.log(res.data.basis);
             setRoomInfo(res.data);
         }).catch(function (error) {
             console.error(error);
@@ -55,8 +55,12 @@ function Reservation() {
         }
     }
 
+    const increment = () => {
+        setValue(parseInt(RoomQty) + 1);
+    }
+
     for (var i = 0; i < RoomQty; i++) {
-        (rawdata && roomInfo) && BookingDetail.push(<BookingDetailCmp key={i} info={rawdata} datediff={datediff} roominfo={roomInfo} index={i} />);
+        (rawdata && roomInfo) && BookingDetail.push(<BookingDetailCmp key={i} info={rawdata} datediff={datediff} roominfo={roomInfo} index={i} setTotal={setTotal} />);
     }
 
     return (
@@ -76,7 +80,7 @@ function Reservation() {
 
                 <div className='row mt-5'>
                     <div className="col-md-1 mb-2 text-center">
-                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { setValue(parseInt(RoomQty) + 1) }}><i className='fa-solid fa-plus'></i></button>
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { increment() }}><i className='fa-solid fa-plus'></i></button>
                     </div>
                     <div className="col-md-1 mb-2 text-center">
                         <h4>{RoomQty.toString()}</h4>
@@ -91,7 +95,7 @@ function Reservation() {
                 {BookingDetail}
             </div>
 
-            <TotalCmp />
+            <TotalCmp total={total} setTotal={setTotal} />
 
             <div className="col-12 col-md-12 mb-5 mt-2 p-1">
                 <div className="row">
@@ -101,7 +105,7 @@ function Reservation() {
                     </div>
 
                     <div className="col-6 font-weight-bold">
-                        <textarea type="text-area" className="form-control" style={{ width: '700px', height: '250px' }}>Please explain your request: arrival tie, flight details, food, preferences, membership number ....</textarea>
+                        <textarea type="text-area" className="form-control" style={{ width: '700px', height: '250px' }} placeholder="Please explain your request: arrival tie, flight details, food, preferences, membership number..."></textarea>
                     </div>
 
                     <div className="col-md-3 mt-2">

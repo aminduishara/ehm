@@ -1,8 +1,10 @@
 import React from 'react'
 import './Total.css'
 
-export default function
-    () {
+export default function ({ total, setTotal }) {
+    const numberWithCommas = (x) => {
+        return parseFloat(x).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
     return (
         <div>
             <div className="d-flex justify-content-center align-items-center">
@@ -14,7 +16,7 @@ export default function
                                     Total Price
                                 </div>
                                 <div className="h3 font-weight-bold text-end">
-                                    $ 200
+                                    $ {numberWithCommas(total)}
                                 </div>
                             </div>
                         </div>
