@@ -18,7 +18,7 @@ function App() {
       <header>
         <nav className="navbar navbar-expand-lg bg-light">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">Navbar</a>
+            <a className="navbar-brand" href="#">meetanu</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -40,12 +40,12 @@ function App() {
                   }>Rooms</NavLink>
                 </li> */}
               </ul>
-              <form className="d-flex" role="search">
+              {/* <form className="d-flex" role="search">
                 <div className="input-group">
                   <input className="form-control custom_search" type="search" placeholder="Search" aria-label="Search" />
                   <span className="input-group-text custom_icon" id="basic-addon1"><i className="fa-solid fa-magnifying-glass"></i></span>
                 </div>
-              </form>
+              </form> */}
             </div>
           </div>
         </nav>
