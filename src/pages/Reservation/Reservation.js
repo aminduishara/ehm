@@ -59,6 +59,10 @@ function Reservation({ bookingData, setBookingData }) {
         setValue(parseInt(RoomQty) + 1);
     }
 
+    const confirm = () => {
+
+    }
+
     for (var i = 0; i < RoomQty; i++) {
         (rawdata && roomInfo) && BookingDetail.push(<BookingDetailCmp key={i} info={rawdata} datediff={datediff} roominfo={roomInfo} index={i} setTotal={setTotal} />);
     }
@@ -109,7 +113,7 @@ function Reservation({ bookingData, setBookingData }) {
                     </div>
 
                     <div className="col-md-3 mt-2">
-                        <Link className='btn btn-primary reservation__confirmbtn float-end' to="/userdetail">Confirm</Link>
+                        <button className='btn btn-primary reservation__confirmbtn float-end' onClick={confirm}>Confirm</button>
                     </div>
 
                 </div>
