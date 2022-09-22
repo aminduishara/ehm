@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link, useNavigate } from 'react-router-dom';
-import HotelImg from './Hotel.jpg'
+import { useNavigate } from 'react-router-dom';
 import './HotelDetailCss.css'
 
+const imageURL = 'http://localhost/meetanu/upload/category/';
 export default function HotelDetailCmp({ room, fromDate, toDate }) {
   const navigate = useNavigate();
   const opendetails = (id) => {
@@ -17,7 +17,7 @@ export default function HotelDetailCmp({ room, fromDate, toDate }) {
   return (
     <div className="col-md-4">
       <div className="card mt-3 shadow bg-white rounded">
-        <img className="card-img-top hoteldetail__card" src={HotelImg} alt="Card image cap" />
+        <img className="card-img-top hoteldetail__card" src={imageURL + room.image} alt="Room Image" />
         <div className="card-body hoteldetail__cardbody">
           <h5 className="card-title" style={{ textAlign: "center" }}>{room.name}</h5>
           <p className="card-text">{room.description}</p>

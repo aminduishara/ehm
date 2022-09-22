@@ -2,10 +2,6 @@ import './RoomDetails.css';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import img6 from '../../Assets/imgs/bed_icon.png'
-import img7 from '../../Assets/imgs/bathtub_icon.png'
-import img8 from '../../Assets/imgs/car_icon.png'
-import img9 from '../../Assets/imgs/pawprint_icon.png'
 
 const imageURL = 'http://localhost/meetanu/upload/category/';
 const RoomDetails = () => {
