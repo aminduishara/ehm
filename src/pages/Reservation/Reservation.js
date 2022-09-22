@@ -104,8 +104,8 @@ function Reservation() {
                         Special<br />Request For<br /> Your <br />Reservation
                     </div>
 
-                    <div className="col-6 font-weight-bold">
-                        <textarea type="text-area" className="form-control" style={{ width: '700px', height: '250px' }} placeholder="Please explain your request: arrival tie, flight details, food, preferences, membership number..."></textarea>
+                    <div className="col-md-6 font-weight-bold">
+                        <textarea className="form-control" rows="8" placeholder="Please explain your request: arrival tie, flight details, food, preferences, membership number..."></textarea>
                     </div>
 
                     <div className="col-md-3 mt-2">
