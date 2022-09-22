@@ -6,7 +6,7 @@ import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment';
 
-function Reservation() {
+function Reservation({ bookingData, setBookingData }) {
 
     const [RoomQty, setValue] = useState(1);
     const [info, setInfo] = useState();

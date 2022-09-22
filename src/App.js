@@ -5,6 +5,7 @@ import Reservation from "./pages/Reservation/Reservation";
 import RoomDetails from "./pages/RoomDetails/RoomDetails";
 import UserDetails from "./pages/UserDetail/UserDetails";
 import axios from 'axios';
+import { useState } from 'react';
 
 axios.defaults.baseURL = "http://localhost/bookingapi/";
 axios.defaults.headers.post['Content-Type'] = "application/json";
@@ -13,6 +14,7 @@ axios.defaults.headers.post['Accept'] = "application/json";
 const navClassName = "nav-link";
 const navActiveClassName = "nav-link active";
 function App() {
+  const [bookingData, setBookingData] = useState();
   return (
     <div className="App">
       <header>
@@ -52,9 +54,9 @@ function App() {
         <div className="container pt-2">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="reservation/:id" element={<Reservation />} />
+            <Route path="reservation/:id" element={<Reservation bookingData={bookingData} setBookingData={setBookingData} />} />
             <Route path="roomdetail/:id" element={<RoomDetails />} />
-            <Route path="userdetail" element={<UserDetails />} />
+            <Route path="userdetail" element={<UserDetails bookingData={bookingData} setBookingData={setBookingData} />} />
           </Routes>
         </div>
       </header>
