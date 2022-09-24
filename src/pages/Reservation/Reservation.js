@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import BookingDetailCmp from '../../components/BookingDetail/BookingDetailCmp'
 import './Reservation.css'
 import TotalCmp from '../../components/Total/TotalCmp'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import moment from 'moment';
 
@@ -19,6 +19,7 @@ function Reservation({ bookingData, setBookingData }) {
 
     const BookingDetail = [];
     const params = useParams();
+    const navigate = useNavigate();
 
     const dataload = async () => {
         await axios.post(`room/getRateInfo`, { id: params.id, date: fromDate }).then(res => {
@@ -59,8 +60,30 @@ function Reservation({ bookingData, setBookingData }) {
         setValue(parseInt(RoomQty) + 1);
     }
 
-    const confirm = () => {
+    const removeComma = (num) => {
+        return parseFloat(num.replace(',', ''));
+    }
 
+    const confirm = () => {
+        let d = [];
+
+        for (var i = 0; i < RoomQty; i++) {
+            let currentIndex = i + 1;
+            let basis = document.getElementById(currentIndex + 'basis').value;
+            let type = document.getElementById(currentIndex + 'type').value;
+            let amount = document.getElementById(currentIndex + 'amount').innerText;
+            let id = document.getElementById(currentIndex + 'id').value;
+
+            d.push({
+                'basis': basis,
+                'type': type,
+                'amount': amount,
+                'id': id
+            });
+        }
+
+        setBookingData(d);
+        navigate('/userdetail/' + params.id);
     }
 
     for (var i = 0; i < RoomQty; i++) {
