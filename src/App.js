@@ -14,7 +14,7 @@ axios.defaults.headers.post['Accept'] = "application/json";
 const navClassName = "nav-link";
 const navActiveClassName = "nav-link active";
 function App() {
-  const [bookingData, setBookingData] = useState();
+  const [bookingData, setBookingData] = useState([]);
   return (
     <div className="App">
       <header>
@@ -56,7 +56,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="reservation/:id" element={<Reservation bookingData={bookingData} setBookingData={setBookingData} />} />
             <Route path="roomdetail/:id" element={<RoomDetails />} />
-            <Route path="userdetail" element={<UserDetails bookingData={bookingData} setBookingData={setBookingData} />} />
+            <Route path="userdetail/:id" element={<UserDetails bookingData={bookingData} setBookingData={setBookingData} />} />
           </Routes>
         </div>
       </header>
