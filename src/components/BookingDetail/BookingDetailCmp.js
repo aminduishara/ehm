@@ -7,10 +7,12 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
   const [firstInfo, setFirstInfo] = useState();
   const [basis, setBasis] = useState('21');
   const [type, setType] = useState('1');
+  const [rateId, setRateId] = useState();
   useEffect(() => {
     let data = info.filter((info) => info.basis === '21' && info.roomtype === '1')[0];
     setFirstInfo(data);
     setAmount(data.amount * datediff);
+    setRateId(data.id);
   }, []);
   const numberWithCommas = (x) => {
     return parseFloat(x).toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -23,7 +25,9 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
   useEffect(() => {
     let data = info.find((info) => info.basis == basis && info.roomtype == type);
     let amount = data?.amount ? data.amount : 0;
+    let r = data?.id ? data.id : 0;
     setAmount(amount * datediff);
+    setRateId(r);
     setTimeout(() => {
       let tot = document.getElementsByClassName('total');
       let t1 = 0;
@@ -40,11 +44,12 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
         <div className="card bookingdetail__card rounded">
           <div className="card-body">
             <div className="row d-flex align-items-center">
+              <input type="hidden" id={currentIndex + 'id'} value={rateId} />
               <div className="col-sm-3 h6">
                 Room {currentIndex && pad(currentIndex, 2)}
               </div>
               <div className="col-md-2 mb-2">
-                <select className='bookingdetail__customselect' value={type} onChange={(e) => { setType(e.target.value) }}>
+                <select className='bookingdetail__customselect' value={type} onChange={(e) => { setType(e.target.value) }} id={currentIndex + 'type'}>
                   {roominfo.type && roominfo.type.map((room) => (
                     <option value={room.id} key={room.id}>{room.name}</option>
                   ))}
@@ -54,7 +59,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
                 {/* <button className="btn bookingdetail__count">01</button> */}
               </div>
               <div className="col-md-2 mb-2">
-                <select className='bookingdetail__customselect' value={basis} onChange={(e) => { setBasis(e.target.value) }}>
+                <select className='bookingdetail__customselect' value={basis} onChange={(e) => { setBasis(e.target.value) }} id={currentIndex + 'basis'}>
                   {roominfo.basis && roominfo.basis.map((room) => (
                     <option value={room.id} key={room.id}>{room.name}</option>
                   ))}
@@ -69,7 +74,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
                 </div>
               </div>
               <div className="col-md-2 h5 text-end">
-                {firstInfo && firstInfo.currency} <span className="total">{amount && numberWithCommas(amount)}</span>
+                {firstInfo && firstInfo.currency} <span className="total" id={currentIndex + 'amount'}>{amount && numberWithCommas(amount)}</span>
               </div>
             </div>
           </div>
