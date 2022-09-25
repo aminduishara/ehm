@@ -7,7 +7,7 @@ import UserDetails from "./pages/UserDetail/UserDetails";
 import axios from 'axios';
 import { useState } from 'react';
 
-axios.defaults.baseURL = "http://localhost/bookingapi/";
+axios.defaults.baseURL = "http://chkapi.meetanu.com/";
 axios.defaults.headers.post['Content-Type'] = "application/json";
 axios.defaults.headers.post['Accept'] = "application/json";
 
