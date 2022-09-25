@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import './UserDetails.css'
 import UserInfo from '../../components/UserInfo/UserInfo';
+import axios from 'axios'
 
 const initialValues = {
     title: 1,
@@ -24,6 +25,8 @@ export default function UserDetails({ bookingData, setBookingData }) {
     const params = useParams();
     const [users, setUsers] = useState([]);
     const [values, setValues] = useState(initialValues);
+    const fromDate = localStorage.getItem('fromDate');
+    const toDate = localStorage.getItem('toDate');
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -33,8 +36,14 @@ export default function UserDetails({ bookingData, setBookingData }) {
         })
     }
 
-    const handleSave = () => {
-        console.log(values);
+    const handleSave = async () => {
+        await axios.post(`room/saveReservation`, { id: params.id, fromdate: fromDate, todate: toDate, values: values, bookingData: bookingData }).then(res => {
+            // setRawdata(res.data)
+            console.log(res.data);
+        }).catch(function (error) {
+            console.error(error);
+            // setError(error.response.data.message);
+        });
     }
 
     useEffect(() => {
