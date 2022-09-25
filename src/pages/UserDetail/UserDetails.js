@@ -123,8 +123,7 @@ export default function UserDetails({ bookingData, setBookingData }) {
                         </div>
                         <div className="form-outline mt-2">
                             <label className="form-label" htmlFor="email">Email</label>
-                            <input type="email" className="form-control" value={values.
-                                email} onChange={handleInputChange} name="email" id="email" />
+                            <input type="email" className="form-control" value={values.email} onChange={handleInputChange} name="email" id="email" />
                         </div>
                         <div className="row mt-2">
                             <div className="col-sm-6">
