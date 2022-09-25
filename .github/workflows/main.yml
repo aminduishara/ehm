@@ -1,27 +1,30 @@
 on: push
-name: 🚀 Deploy website on push
+name: Build and Publish Front End Framework Website
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-
-    - name: Use Node.js 14
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@master
+    
+    - name: Use Node.js 14.x
+      uses: actions/setup-node@v1
       with:
-        node-version: '14'
-      
-    - name: 🔨 Build Project
+        node-version: '14.x'
+        
+    - name: Build Project
       run: |
         npm install
-        npm run build
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.2
-      with:
-        server: ftp.netfirms.com
-        username: ${{ secrets.ftp_username }}
-        password: ${{ secrets.ftp_password }}
-        server-dir: /DCHKIN/
+        npm run build --if-present
+        
+    - name: List output files
+      run: ls
+      
+    - name: FTP-Deploy-Action
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: ftp.netfirms.com
+        FTP_USERNAME: ${{ secrets.ftp_username }}
+        FTP_PASSWORD: ${{ secrets.ftp_password }}
+        LOCAL_DIR: /DCHKIN/
+        ARGS: --delete
