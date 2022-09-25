@@ -8,6 +8,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
   const [basis, setBasis] = useState('21');
   const [type, setType] = useState('1');
   const [rateId, setRateId] = useState();
+  const [pax, setPax] = useState(1);
   useEffect(() => {
     let data = info.filter((info) => info.basis === '21' && info.roomtype === '1')[0];
     setFirstInfo(data);
@@ -24,10 +25,12 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
   }
   useEffect(() => {
     let data = info.find((info) => info.basis == basis && info.roomtype == type);
+    let rt = roominfo.type.find((t) => t.id == type);
     let amount = data?.amount ? data.amount : 0;
     let r = data?.id ? data.id : 0;
     setAmount(amount * datediff);
     setRateId(r);
+    setPax(rt.pax);
     setTimeout(() => {
       let tot = document.getElementsByClassName('total');
       let t1 = 0;
@@ -45,6 +48,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
           <div className="card-body">
             <div className="row d-flex align-items-center">
               <input type="hidden" id={currentIndex + 'id'} value={rateId} />
+              <input type="hidden" id={currentIndex + 'pax'} value={pax} />
               <div className="col-sm-3 h6">
                 Room {currentIndex && pad(currentIndex, 2)}
               </div>

@@ -73,12 +73,14 @@ function Reservation({ bookingData, setBookingData }) {
             let type = document.getElementById(currentIndex + 'type').value;
             let amount = document.getElementById(currentIndex + 'amount').innerText;
             let id = document.getElementById(currentIndex + 'id').value;
+            let pax = document.getElementById(currentIndex + 'pax').value;
 
             d.push({
                 'basis': basis,
                 'type': type,
                 'amount': amount,
-                'id': id
+                'id': id,
+                'pax': pax
             });
         }
 
