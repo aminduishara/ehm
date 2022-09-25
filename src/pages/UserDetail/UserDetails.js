@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './UserDetails.css'
 import UserInfo from '../../components/UserInfo/UserInfo';
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const initialValues = {
     title: 1,
@@ -21,6 +22,7 @@ const initialValues = {
 };
 
 export default function UserDetails({ bookingData, setBookingData }) {
+    const Swal = require('sweetalert2')
     const navigate = useNavigate();
     const params = useParams();
     const [users, setUsers] = useState([]);
@@ -37,9 +39,19 @@ export default function UserDetails({ bookingData, setBookingData }) {
     }
 
     const handleSave = async () => {
+        document.getElementById('save').disabled = true;
+        document.getElementById('save').innerHTML = 'Saving..........';
         await axios.post(`room/saveReservation`, { id: params.id, fromdate: fromDate, todate: toDate, values: values, bookingData: bookingData }).then(res => {
             // setRawdata(res.data)
             console.log(res.data);
+            Swal.fire({
+                title: 'Successfully Completed!',
+                text: 'Your Reservation No is ' + res.data.resID,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                navigate('/');
+            })
         }).catch(function (error) {
             console.error(error);
             // setError(error.response.data.message);
@@ -157,7 +169,7 @@ export default function UserDetails({ bookingData, setBookingData }) {
                         user
                     ))}
                     <div className="text-end">
-                        <button type="button" className='btn btn-primary userdetail__savebtn' onClick={handleSave}>Save</button>
+                        <button type="button" className='btn btn-primary userdetail__savebtn' id="save" onClick={handleSave}>Save</button>
                     </div>
                 </div>
 
