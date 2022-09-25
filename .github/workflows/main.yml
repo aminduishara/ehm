@@ -27,4 +27,4 @@ jobs:
         server: ftp.netfirms.com
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        server-dir: /DCHKIN/
+        local-dir: /DCHKIN/
