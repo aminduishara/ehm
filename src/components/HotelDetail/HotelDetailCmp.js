@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import './HotelDetailCss.css'
 
-const imageURL = 'http://localhost/meetanu/upload/category/';
+const imageURL = 'https://demo.meetanu.com/upload/category/';
 export default function HotelDetailCmp({ room, fromDate, toDate }) {
   const navigate = useNavigate();
   const opendetails = (id) => {

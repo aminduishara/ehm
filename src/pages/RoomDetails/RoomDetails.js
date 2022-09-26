@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const imageURL = 'http://localhost/meetanu/upload/category/';
+const imageURL = 'https://demo.meetanu.com/upload/category/';
 const RoomDetails = () => {
     const params = useParams();
     const [info, setInfo] = useState();
