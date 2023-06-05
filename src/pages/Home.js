@@ -10,13 +10,15 @@ function Home() {
     const [dateError, setdateError] = useState('Please Select the Date Range to View Rooms');
     const [dateErrorStatus, setdateErrorStatus] = useState(true);
     const dataload = async () => {
-        await axios.post(`room/getAvailableRooms`).then(res => {
-            console.log(res.data);
-            setRooms(res.data)
-        }).catch(function (error) {
-            console.error(error);
-            // setError(error.response.data.message);
-        });
+        if(fromDate && toDate){
+            await axios.post(`room/getAvailableRooms`).then(res => {
+                console.log(res.data);
+                setRooms(res.data)
+            }).catch(function (error) {
+                console.error(error);
+                // setError(error.response.data.message);
+            });
+        }
     }
     const dataloadbyperiod = async () => {
         setRooms([])
