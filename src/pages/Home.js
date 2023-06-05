@@ -7,6 +7,8 @@ function Home() {
     const [rooms, setRooms] = useState();
     const [fromDate, setFromDate] = useState();
     const [toDate, setToDate] = useState();
+    const [dateError, setdateError] = useState('Please Select the Date Range to View Rooms');
+    const [dateErrorStatus, setdateErrorStatus] = useState(true);
     const dataload = async () => {
         await axios.post(`room/getAvailableRooms`).then(res => {
             console.log(res.data);
