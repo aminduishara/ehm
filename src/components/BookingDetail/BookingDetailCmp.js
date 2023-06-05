@@ -12,7 +12,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
   useEffect(() => {
     let data = info.filter((info) => info.basis === '21' && info.roomtype === '1')[0];
     setFirstInfo(data);
-    setAmount(data.amount * datediff);
+    setAmount(data.amount ? data.amount : 0 * datediff);
     setRateId(data.id);
   }, []);
   const numberWithCommas = (x) => {
@@ -28,7 +28,7 @@ export default function BookingDetailCmp({ info, datediff, roominfo, index, setT
     let rt = roominfo.type.find((t) => t.id == type);
     let amount = data?.amount ? data.amount : 0;
     let r = data?.id ? data.id : 0;
-    setAmount(amount * datediff);
+    setAmount(amount ? amount : 0 * datediff);
     setRateId(r);
     setPax(rt.pax);
     setTimeout(() => {

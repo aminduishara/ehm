@@ -109,13 +109,13 @@ function Reservation({ bookingData, setBookingData }) {
 
                 <div className='row mt-5'>
                     <div className="col-md-1 mb-2 text-center">
-                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { increment() }}><i className='fa-solid fa-plus'></i></button>
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { decrement() }}><i className='fa-solid fa-minus'></i></button>
                     </div>
                     <div className="col-md-1 mb-2 text-center">
                         <h4>{RoomQty.toString()}</h4>
                     </div>
                     <div className="col-md-1 mb-2 text-center">
-                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { decrement() }}><i className='fa-solid fa-minus'></i></button>
+                        <button className="btn reservation__roomcount" value={RoomQty.toString()} onClick={(e) => { increment() }}><i className='fa-solid fa-plus'></i></button>
                     </div>
                 </div>
             </div>

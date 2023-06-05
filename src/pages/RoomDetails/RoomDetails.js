@@ -47,9 +47,10 @@ const RoomDetails = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="col-md-3 div__cl2 row">
-                        <Link className="col-md-12 btn__Reserve text-center" to={`/reservation/` + params.id} style={{ textDecoration: 'none' }}>Reserve Now</Link>
+                    <div className="col-md-3 div__cl2 row p-5">
+                        <Link className="btn btn-primary btn__Reserve2" to={`/reservation/` + params.id} style={{ textDecoration: 'none' }}>Reserve Now</Link>
                     </div>
+
 
                     <div className="col-md-9 row">
                         <div className="com-md-12 pt-4">

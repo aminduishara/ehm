@@ -54,6 +54,15 @@
     background-color: royalblue;
 }
 
+.btn__Reserve2 {
+    border-radius: 50px;
+    height: 40px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .p_note_head {
     font-size: 16px;
     font-weight: 600;

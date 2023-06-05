@@ -17,14 +17,15 @@ export default function HotelDetailCmp({ room, fromDate, toDate }) {
   return (
     <div className="col-md-4">
       <div className="card mt-3 shadow bg-white rounded">
-        <img className="card-img-top hoteldetail__card" src={imageURL + room.image} alt="Room Image" />
+        <img className="card-img-top hoteldetail__card" src={imageURL + room.image} alt="Room Image" style={{ height: '250px', width:'100%' }}/>
         <div className="card-body hoteldetail__cardbody">
-          <h5 className="card-title" style={{ textAlign: "center" }}>{room.name}</h5>
-          <p className="card-text">{room.description}</p>
+          <h6 className="card-title" style={{ textAlign: "left" }}>{room.name}</h6>
+          <p className="card-text">{room.description}</p>          
+          <h6 className="d-flex justify-content-center btn btn-danger"> {room.basis_name} - {room.currency} {room.amount}</h6>
         </div>
         <div className="card-footer text-center" style={{ background: 'none' }}>
           {/* <Link to={"/roomdetail/" + room.id} className="btn btn-dark">Book from {room.currency}{room.amount}</Link> */}
-          <button className="btn btn-dark" onClick={() => { opendetails(room.id) }}>Book from {room.currency} {room.amount}</button>
+          <button className="btn btn-dark" onClick={() => { opendetails(room.id) }}>Book Now</button>
         </div>
       </div>
     </div>
